@@ -1,0 +1,43 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3499
+
+Only for windows.
+
+As a vimer, I wish to use vim to locate and open file more easier and faster.
+One day, I found a free software named Everything, it can locates files and folders by filename instantly for Windows.
+This plugin provides a interface with Everything command-line tools(es.exe).
+Invoke FindEverything, type the file name you wish to find, and then it will return results in a buffer window.
+
+How fast it can be?
+I type '*', which means find all files in all of my drives, and it return 160,000+ results in less than 5 seconds.
+I believe that if you type more character, it will show the results instantly.
+
+Usage:
+1. Download Everything gui and command-line(es.exe) tools
+    from the website: http://www.voidtools.com/download.php
+2. Start everything.exe and keep it running in background.
+3. Put this plugin into your vim runtime/plugin directory.
+4. Define g:fe_es_exe in your vimrc file. 
+     Notice: it should pointer to the everything command-line interface(es.exe)
+     e.g. let g:fe_es_exe = 'd:\Everything\es.exe'
+5. Open vim and run command :FE
+
+Command(all capital)
+:FE  find files using everything.
+:FER toggle the buffer to see the last search result.
+
+Some map_keys:
+<CR>     Open file under the cursor by default association.
+<C-CR>   Open file under the cursor using current vim session.
+<ESC>    Quit the result buffer.
+
+Some options:
+1. Always open these file types in current vim session.
+   let g:fe_openfile_filter = ['txt', 'vim']
+2. Define es.exe option.
+   let g:fe_es_option = '-s'
+
+Known issues:
+1. Don't set g:fe_es_exe to any path include whitespace.
+2. es.exe support regular search, but seems that it can't work as well as its gui tools.
+   So, I suggest not using its -r option. You can use vim regular for further searching.
+
